@@ -28,6 +28,7 @@ services:
       # - ./client.ovpn:/client.ovpn         # optional, if config path is used
     environment:
       - CONFIG_PATH=/client.ovpn           # optional
+      - CONFIG_BASE64=${CONFIG_BASE64}     # optional
       - MICROSOCKS_USER=test               # optional
       - MICROSOCKS_PASSWORD=test           # optional
       - MICROSOCKS_AUTHONCE=true           # optional
