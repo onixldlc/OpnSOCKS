@@ -1,0 +1,20 @@
+services:
+  opnsock:
+    image: onixldlc/opnsocks:latest
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "1080:1080"
+    volumes:
+      - ./client.ovpn:/etc/openvpn/client.ovpn
+      # - ./client.ovpn:/client.ovpn         # optional, if config path is used
+    environment:
+      - CONFIG_PATH=/client.ovpn           # optional
+      - MICROSOCKS_USER=test               # optional
+      - MICROSOCKS_PASSWORD=test           # optional
+      - MICROSOCKS_AUTHONCE=true           # optional
+      - MICROSOCKS_LISTEN_IP=0.0.0.0       # optional
+      - MICROSOCKS_WHITELIST=10.10.10.10   # optional
+      - MICROSOCKS_BINDIP=0.0.0.0          # optional
+      - MICROSOCKS_PORT=1080               # optional
+      - MICROSOCKS_QUIET=false             # optional
