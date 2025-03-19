@@ -1,6 +1,14 @@
 #!/bin/bash
 
 CONFIG_PATH="${CONFIG_PATH}"
+CONFIG_BASE64="${CONFIG_BASE64}"
+
+if [ -z "$CONFIG_BASE64" ]; then
+    echo "No config file specified!"
+else
+    echo "Config file specified!"
+    echo "$CONFIG_BASE64" | base64 -d > /etc/openvpn/client.ovpn
+fi
 
 if [ -z "$CONFIG_PATH" ]; then
     echo "No config file specified! using default config path!"

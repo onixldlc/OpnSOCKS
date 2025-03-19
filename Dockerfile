@@ -6,10 +6,11 @@ RUN apk add --no-cache \
     openvpn \
     bridge-utils \
     easy-rsa \
-    iptables
-
-RUN apk add --no-cache \
+    iptables \
     bash
+
+RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/main \
+    base64
 
 WORKDIR /openvpn
 COPY . .
