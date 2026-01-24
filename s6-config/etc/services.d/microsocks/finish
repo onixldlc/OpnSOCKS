@@ -1,3 +1,6 @@
-#!/command/execlineb -S1
-# Exit code 256 tells s6 not to restart this service
-ifelse { s6-test ${1} -ne 0 } { s6-svscanctl -t /var/run/s6/services }
+#!/command/with-contenv bash
+# If service exited with error, stop the container
+if [ "$1" -ne 0 ]; then
+    echo "microsocks exited with code $1, stopping container..."
+    /run/s6/basedir/bin/halt
+fi
