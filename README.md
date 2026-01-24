@@ -10,7 +10,7 @@ to quickly run OpnSOCKS as default configuration you can use this command
 sudo docker run  \
   -v ${PWD}/client.ovpn:/etc/openvpn/client.ovpn \
   --cap-add=NET_ADMIN -p 1080:1080 \
-  --rm -it onixldlc/opnsocks:latest
+  --rm -it ghcr.io/onixldlc/opnsocks:latest
 ```
 
 ### docker compose
@@ -18,7 +18,7 @@ or if you like to use compose, you can fill the docker-compose.yml file like so
 ```yml
 services:
   opnsock:
-    image: onixldlc/opnsocks:latest
+    image: ghcr.io/onixldlc/opnsocks:latest
     cap_add:
       - NET_ADMIN
     ports:
