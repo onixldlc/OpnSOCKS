@@ -23,7 +23,8 @@ WORKDIR /openvpn
 COPY . .
 RUN chmod u+x ./*.sh
 
-# Copy s6-overlay config (cont-init.d + services.d)
 COPY s6-config/ /
+RUN chmod +x /etc/cont-init.d/* /etc/services.d/*/run /etc/services.d/*/finish
+ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=2
 
 ENTRYPOINT ["/init"]
