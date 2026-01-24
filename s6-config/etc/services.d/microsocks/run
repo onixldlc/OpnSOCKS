@@ -1,0 +1,9 @@
+#!/command/with-contenv bash
+cd /openvpn
+source ./microsocks-user.sh
+source ./microsocks-net.sh
+
+EXTRAARGS=""
+[ "$MICROSOCKS_QUIET" == "true" ] && EXTRAARGS="-q"
+
+exec microsocks ${AUTHARGS} ${NETARGS} ${EXTRAARGS}
