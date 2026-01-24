@@ -1,6 +1,9 @@
 services:
   opnsock:
     image: ghcr.io/onixldlc/opnsocks:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     cap_add:
       - NET_ADMIN
     ports:
