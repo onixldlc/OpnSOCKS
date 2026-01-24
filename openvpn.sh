@@ -22,7 +22,7 @@ if [ "$CONFIG_PATH" == "/etc/openvpn/client.ovpn" ]; then
 else
     echo "Using custom config path!"
 fi
-echo "config file: [$CONFIG_PATH]" 
+echo "config file: [$CONFIG_PATH]"
 
 
 if [ -f "$CONFIG_PATH" ]; then
@@ -38,5 +38,5 @@ if [ ! -c /dev/net/tun ]; then
     mknod /dev/net/tun c 10 200
 fi
 
-openvpn --config /etc/openvpn/client.ovpn & 
+openvpn --config /etc/openvpn/client.ovpn &
 echo "[+] openvpn started!"
