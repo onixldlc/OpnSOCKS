@@ -1,2 +1,8 @@
 #!/command/with-contenv bash
-exec openvpn --config /etc/openvpn/client.ovpn
+
+OPENVPN_CONNECT_RETRY_MAX="${OPENVPN_CONNECT_RETRY_MAX:-3}"
+OPENVPN_CONNECT_RETRY="${OPENVPN_CONNECT_RETRY:-5}"
+
+exec openvpn --config /etc/openvpn/client.ovpn \
+    --connect-retry-max "$OPENVPN_CONNECT_RETRY_MAX" \
+    --connect-retry "$OPENVPN_CONNECT_RETRY"
